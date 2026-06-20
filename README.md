@@ -25,7 +25,7 @@ That's the heart of the tribute. Alan Turing's foundational insight was that com
 
 ## Demo
 
-<!-- 📹 PASTE YOUR DEMO VIDEO EMBED HERE (YouTube/Loom). DEV supports: {% embed VIDEO_URL %} -->
+ DEMO VIDEO [EMBED HERE (YouTube/Loom). DEV supports: {% embed VIDEO_URL %} -->](https://github.com/user-attachments/assets/7841ffe1-16b5-4173-b221-1d0726ebb035)
 
 **▶️ Play it live:** https://muhmdusman.github.io/solistice-game/
 

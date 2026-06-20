@@ -22,6 +22,8 @@
 
   const boardCanvas = $('#board');
   const renderer = new window.Renderer(boardCanvas);
+  const sky = new window.Sky('bg');
+  sky.start();
 
   // --- Persistent best score ---
   const BEST_KEY = 'helios_best';
@@ -272,6 +274,8 @@
 
   function updateSunUI() {
     $('#sun-fill').style.width = Math.max(0, state.daylight) + '%';
+    // The sky background mirrors the daylight clock (0% light => full night).
+    sky.setProgress(1 - state.daylight / 100);
   }
 
   // ---- Level outcomes ----

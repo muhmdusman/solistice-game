@@ -120,6 +120,91 @@
 
     {
       id: 6,
+      name: 'Crossfire',
+      time: '17:15',
+      width: 9,
+      height: 7,
+      story: 'Two suns, two crystals \u2014 but none of them line up. Bend both beams inward to the waiting cores.',
+      fixed: {
+        emitters: [
+          { x: 0, y: 0, dir: 1 },
+          { x: 0, y: 6, dir: 1 }
+        ],
+        prisms: [{ x: 8, y: 2, id: 'P1' }, { x: 8, y: 4, id: 'P2' }],
+        walls: [{ x: 8, y: 0 }, { x: 8, y: 6 }],
+        gates: [],
+        mirrors: []
+      },
+      tray: [{ type: 'mirror' }, { type: 'mirror' }, { type: 'mirror' }, { type: 'mirror' }],
+      hint: 'Each beam must turn down (or up) toward a middle row, then east into its crystal. Two mirrors per ray.'
+    },
+
+    {
+      id: 7,
+      name: 'The Negative',
+      time: '18:30',
+      width: 9,
+      height: 7,
+      story: 'A NAND gate \u2014 the universal gate. Turing\u2019s logic can be built entirely from this one shape. Keep it from seeing both inputs.',
+      fixed: {
+        emitters: [{ x: 0, y: 3, dir: 1 }],
+        prisms: [{ x: 8, y: 6, id: 'P1' }],
+        walls: [{ x: 6, y: 3 }],
+        // NAND output South at (4,3); inputs East & West. Single input -> fires.
+        gates: [{ x: 4, y: 3, gateType: 'NAND', dir: 2 }],
+        mirrors: []
+      },
+      tray: [{ type: 'mirror' }, { type: 'mirror' }],
+      hint: 'The sun feeds one NAND input, so it fires downward. Bend that output across to the crystal.'
+    },
+
+    {
+      id: 8,
+      name: 'Stillness',
+      time: '19:45',
+      width: 9,
+      height: 7,
+      story: 'A NOR gate wakes only in perfect quiet \u2014 when no light touches it at all. Light the crystal without ever feeding the gate.',
+      fixed: {
+        emitters: [{ x: 0, y: 0, dir: 1 }],
+        prisms: [{ x: 8, y: 4, id: 'P1' }],
+        walls: [{ x: 3, y: 4 }, { x: 5, y: 4 }],
+        // NOR output South at (4,5)... we want it lit since no input. Place
+        // gate low and walled-off so its inputs stay dark; route its output.
+        gates: [{ x: 4, y: 5, gateType: 'NOR', dir: 0 }],
+        mirrors: []
+      },
+      tray: [{ type: 'mirror' }, { type: 'mirror' }],
+      hint: 'The walls shield the NOR gate, so it stays awake and fires north. Catch that beam and steer it to the crystal.'
+    },
+
+    {
+      id: 9,
+      name: 'Fork & Gate',
+      time: '20:30',
+      width: 11,
+      height: 7,
+      story: 'Split one ray in two, then bring both halves back together to satisfy an AND gate. Division and reunion.',
+      fixed: {
+        emitters: [{ x: 0, y: 3, dir: 1 }],
+        prisms: [{ x: 10, y: 3, id: 'P1' }],
+        walls: [{ x: 8, y: 0 }, { x: 8, y: 6 }],
+        // AND output East at (8,3); inputs North & South.
+        gates: [{ x: 8, y: 3, gateType: 'AND', dir: 1 }],
+        mirrors: []
+      },
+      tray: [
+        { type: 'splitter' },
+        { type: 'mirror' },
+        { type: 'mirror' },
+        { type: 'mirror' },
+        { type: 'mirror' }
+      ],
+      hint: 'Split the beam early, route one copy to the gate\u2019s north port and the other to its south port, then send the output to the crystal.'
+    },
+
+    {
+      id: 10,
       name: 'The Oracle',
       time: '21:30',
       width: 11,

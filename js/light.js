@@ -79,6 +79,8 @@
       case 'OR': return on >= 1;
       case 'XOR': return on === 1;
       case 'NOT': return inputBits.length >= 1 && !inputBits[0];
+      case 'NAND': return !(inputBits.length >= 2 && on === inputBits.length);
+      case 'NOR': return on === 0;
       default: return false;
     }
   }
